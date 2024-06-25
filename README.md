@@ -80,10 +80,6 @@ These libraries are listed in the `requirements.txt` file.
 
      # Install dependencies
      !pip install -r requirements.txt
-
-     # Upload the dataset
-     from google.colab import files
-     uploaded = files.upload()
      ```
 
 ### Directory Structure
@@ -93,13 +89,14 @@ prediction-of-heart-disease/
 ├── data/
 │   └── heart_disease_dataset.csv
 ├── notebooks/
+│   ├── main.ipynb
 │   ├── Data_Exploration_and_Cleaning.ipynb
 │   ├── Feature_Engineering_and_Preprocessing.ipynb
 │   ├── Model_Building_and_Evaluation.ipynb
 │   └── Model_Interpretation.ipynb
 ├── src/
 │   ├── __init__.py
-│   ├── data_cleaning.py
+│   ├── setup.py
 │   ├── data_loader.py
 │   ├── feature_engineering.py
 │   ├── model_training.py
