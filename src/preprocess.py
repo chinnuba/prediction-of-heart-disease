@@ -52,10 +52,30 @@ def _preprocess_data(X, y):
 
     return X_train, X_test, y_train, y_test
 
+def _analyze_outliers(df):
+    """Analyze each column for potential outliers."""
+    numerical_cols = df.select_dtypes(include=['int64', 'float64']).columns
+
+    for col in numerical_cols:
+        Q1 = df[col].quantile(0.25)
+        Q3 = df[col].quantile(0.75)
+        IQR = Q3 - Q1
+        lower_bound = Q1 - 1.5 * IQR
+        upper_bound = Q3 + 1.5 * IQR
+        outliers = df[(df[col] < lower_bound) | (df[col] > upper_bound)]
+
+        print(f'\nAnalysis of {col}:')
+        print(f'Lower Bound: {lower_bound}, Upper Bound: {upper_bound}')
+        print(f'Number of Potential Outliers: {len(outliers)}')
+        print(outliers[col].sort_values().to_string(index=False))
+
 def clean_and_preprocess(df):
 
     # Step 1: Data Cleaning
     df = _clean_data(df)
+
+    # Analyze Outliers
+    _analyze_outliers(df)
 
     # Separate features and target
     X = df.drop(columns='target')
