@@ -57,11 +57,11 @@ class DataVisualizer:
             plt.title(f'Distribution Plot of {col}')
             plt.show()
 
-    def correlation_heatmap(self):
-            """Visualize the correlation matrix as a heatmap."""
-            processed_df = _clean_data(self.df)
-            plt.figure(figsize=(12, 10))
-            correlation_matrix = processed_df.corr()
-            sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
-            plt.title('Correlation Matrix Heatmap')
-            plt.show()
+    # def correlation_heatmap(self):
+    #         """Visualize the correlation matrix as a heatmap."""
+    #         processed_df = _clean_data(self.df)
+    #         plt.figure(figsize=(12, 10))
+    #         correlation_matrix = processed_df.corr()
+    #         sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+    #         plt.title('Correlation Matrix Heatmap')
+    #         plt.show()
