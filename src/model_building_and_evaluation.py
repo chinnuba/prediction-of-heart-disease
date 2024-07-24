@@ -49,14 +49,14 @@ def _evaluate_model(model, X_test, y_test):
 
 def train_and_evaluate(X_train, X_test, y_train, y_test):
     # Initialize models
-    models = initialize_models()
+    models = _initialize_models()
 
     # Cross-validate models
-    cross_validate_models(models, X_train, y_train)
+    _cross_validate_models(models, X_train, y_train)
 
     # Hyperparameter tuning for Random Forest
-    best_rf_model = hyperparameter_tuning(X_train, y_train)
+    best_rf_model = _hyperparameter_tuning(X_train, y_train)
 
     # Evaluate the best Random Forest model
     print("\nEvaluation of the best Random Forest model on the test set:")
-    evaluate_model(best_rf_model, X_test, y_test)
+    _evaluate_model(best_rf_model, X_test, y_test)
