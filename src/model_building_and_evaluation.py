@@ -60,3 +60,13 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
     # Evaluate the best Random Forest model
     print("\nEvaluation of the best Random Forest model on the test set:")
     _evaluate_model(best_rf_model, X_test, y_test)
+
+    # Additional evaluation for Logistic Regression
+    best_lr_model = models['Logistic Regression'].fit(X_train, y_train)
+    print("\nEvaluation of Logistic Regression on the test set:")
+    _evaluate_model(best_lr_model, X_test, y_test)
+
+    # Additional evaluation for SVM
+    best_svm_model = models['SVM'].fit(X_train, y_train)
+    print("\nEvaluation of SVM on the test set:")
+    _evaluate_model(best_svm_model, X_test, y_test)
