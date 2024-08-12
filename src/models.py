@@ -18,6 +18,16 @@ def get_models():
         'SVM': SVC(random_state=42, probability=True),
         'Logistic Regression': LogisticRegression(random_state=42, max_iter=1000),
         'Neural Network': MLPClassifier(random_state=42, max_iter=1000),
-        'KNN': KNeighborsClassifier()
+        'KNN': KNeighborsClassifier(),
+        'Custom Neural Network': MLPClassifier(
+            hidden_layer_sizes=(64, 128, 128, 64),
+            activation='relu',
+            solver='adam',
+            alpha=0.001,
+            batch_size=64,
+            learning_rate='adaptive',
+            max_iter=500,
+            random_state=42
+        )
     }
     return models
