@@ -1,6 +1,17 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, classification_report, confusion_matrix, ConfusionMatrixDisplay, roc_curve, auc
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    roc_auc_score,
+    classification_report,
+    confusion_matrix,
+    ConfusionMatrixDisplay,
+    roc_curve,
+    auc
+)
 
 def plot_training_history(model):
     if hasattr(model, 'loss_curve_'):
