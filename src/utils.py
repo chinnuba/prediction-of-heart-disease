@@ -1,6 +1,6 @@
 import pandas as pd
 from src.model_evaluation import evaluate_model
-from model_optimization import (
+from src.model_optimization import (
     hyperparameter_tuning_neural_network,
     hyperparameter_tuning_random_forest,
     hyperparameter_tuning_neural_network,
