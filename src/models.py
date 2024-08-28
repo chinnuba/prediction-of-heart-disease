@@ -4,6 +4,7 @@ from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import VotingClassifier
 
 def get_models():
     """
@@ -28,6 +29,14 @@ def get_models():
             learning_rate='adaptive',
             max_iter=500,
             random_state=42
+        ),
+        'Voting Classifier': VotingClassifier(
+            estimators=[
+                ('decision_tree', DecisionTreeClassifier(random_state=42)),
+                ('random_forest', RandomForestClassifier(random_state=42)),
+                ('neural_network', MLPClassifier(random_state=42, max_iter=1000))
+            ],
+            voting='soft'
         )
     }
     return models
